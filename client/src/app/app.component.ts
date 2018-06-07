@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NgbDropdownModule} from "@ng-bootstrap/ng-bootstrap";
+import { Router } from '@angular/router';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,8 @@ export class AppComponent {
 
   searchTerm = '';
   isCollapsed = true;
+
+  constructor(private router: Router) { }
 
   get token() {
     return localStorage.getItem('token');
@@ -23,8 +27,11 @@ export class AppComponent {
     dropdown.close();
   }
 
-  logout() {}
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
 
-  search() {}
+  search() { }
 
 }
