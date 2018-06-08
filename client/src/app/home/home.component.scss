@@ -3,10 +3,18 @@ ngb-carousel {
   max-width: 1500px;
   margin-left: auto;
   margin-right: auto;
+  height: 300px;
+}
+.container-fluid {
+  padding: 0;
 }
 
 .item {
   position: relative;
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 300px;
+  /*width: 100%;*/
   left: 50%;
   transform: translateX((-50%));
 }

@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './registration/registration.component';
 import {HomeComponent} from './home/home.component';
+import {AuthGuardService} from './auth-guard.service';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'register', component: RegistrationComponent }
+  { path: 'register', component: RegistrationComponent, canActivate: [AuthGuardService] },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuardService] },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
