@@ -1,37 +1,41 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import {Component} from '@angular/core';
+import {Data, Router} from '@angular/router';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {DataService} from './data.service';
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
-  searchTerm = '';
-  isCollapsed = true;
+	searchTerm = '';
+	isCollapsed = true;
 
-  constructor(private router: Router) { }
+	constructor(private router: Router, private data: DataService) {
+	}
 
-  get token() {
-    return localStorage.getItem('token');
-  }
+	get token() {
+		return localStorage.getItem('token');
+	}
 
-  collapse() {
-    this.isCollapsed = true;
-  }
+	collapse() {
+		this.isCollapsed = true;
+	}
 
-  closeDropdown(dropdown) {
-    dropdown.close();
-  }
+	closeDropdown(dropdown) {
+		dropdown.close();
+	}
 
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['']);
-  }
+	logout() {
+		this.data.user = {};
+		localStorage.clear();
+		this.router.navigate(['']);
+	}
 
-  search() { }
+	search() {
+	}
 
 }

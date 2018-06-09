@@ -13,6 +13,9 @@ import {RestApiService} from './rest-api.service';
 import {DataService} from './data.service';
 import {AuthGuardService} from './auth-guard.service';
 import {HttpClientModule} from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import { SettingComponent } from './setting/setting.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     RegistrationComponent,
     MessageComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    SettingComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
